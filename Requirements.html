@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+
+
+<title>Journals and papers</title>
+<link href=".css.css" rel="stylesheet" type="text/css">
+<style>
+@media print {  /* adjusted to print the html to a single-page pdf */
+body {
+	font-size: 10pt;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Journals and papers</h1>
+
+The program simulates the management of journals and papers.
+All classes are found in the <b>journals</b> package. The main class is <b>Journals</b>.
+The <b>TestApp</b>  class in the <b>example</b> package contains examples and presents the main test cases but not all.
+Exceptions are thrown using the <b>JException</b> class; only the specified checks must be carried out and not all possible ones.
+If a method throws an exception there is no change in the data present in the main class.
+Suggestion: every time you have implemented a method, run TestApp to check the result.
+<p>
+The JDK documentation is accessible at URL
+<a href="https://oop.polito.it/api/" class="uri">https://oop.polito.it/api/</a>.
+</p>
+
+
+<h2>R1: Journals, impact factors</h2>
+
+Method <b>int addJournal(String name, double impactFactor)</b> inserts a new journal with name and impact factor.
+It throws an exception if the journal (represented by its name) already exists. The result is the number of characters of the name.
+<p>
+
+Method <b>double getImpactFactor(String name)</b> gives the impact factor of the journal indicated by the name.
+It throws an exception if the journal does not exist.
+<p>
+
+Method <b>groupJournalsByImpactFactor()</b> groups journal names by increasing impact factors. Journal names are listed in alphabetical order.
+
+
+<h2>R2: Authors, papers</h2>
+
+Method <b>int registerAuthors (String... authorNames)</b> adds authors. 
+Duplicated authors are ignored. The result is the number of authors entered so far.
+<p>
+
+Method <b>String addPaper (String journalName, String paperTitle, String... authorNames)</b> adds a paper to a journal. The journal is indicated by its name; the method throws an exception if the journal does not exist.
+The paper has a title that must be unique in the specified journal, otherwise an exception is thrown. The paper can have one or more authors: if not all have been registered, an exception is thrown.
+The result is the journal name followed by ":" and the paper title.
+<p>
+
+Method <b>giveNumberOfPapersByJournal()</b> gives the number of papers for each journal. Journals are sorted alphabetically. Journals without papers are ignored.
+<p>
+
+<h2>R3: Impact factors</h2>
+
+
+Method <b>double getAuthorImpactFactor(String authorName)</b> gives the impact factor for the author indicated.
+The impact factor of an author is obtained by adding the impact factors of his/her papers. The impact factor of a paper is equal to that of the journal containing the paper.
+The method throws an exception if the author has not been registered. If the author has no papers the result is 0.0.
+<p>
+
+Method <b>getImpactFactorsByAuthors()</b> groups authors (in alphabetical order) by increasing impact factors.
+Authors without papers are ignored.
+
+<h2>R4: Statistics</h2>
+
+Method <b>getNumberOfPapersByAuthor()</b> gives the number of papers by author; authors are sorted alphabetically. Authors without papers are ignored.
+<p>
+
+Method <b>String getJournalWithTheLargestNumberOfPapers()</b> gives the name of the journal having the largest number of papers. If the largest number of papers is common to two or more journals the result is the name of the journal which is the first in alphabetical order.
+
+
+
+</body>
+</html>
